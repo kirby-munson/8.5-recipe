@@ -5,7 +5,10 @@ var User = require('../models/user').User;
 
 var SignUpComponent = React.createClass({
   getInitialState: function(){
-    return {'username': '', 'password': ''}
+    return {
+      'username': '',
+       'password': ''
+     }
   },
   handleSubmit: function(e){
     e.preventDefault();
@@ -39,17 +42,15 @@ var SignUpComponent = React.createClass({
           User Name: <br/>
           <input type="text"
                   value={this.state.username}
-                  onChange={this.handleNameChange}
-             /><br/>
+                  onChange={this.handleNameChange}/><br/>
           Password:<br/>
-        <input type="password"
+          <input type="password"
                   value={this.state.password}
-                  onChange={this.handlePasswordChange}
-            /><br/>
+                  onChange={this.handlePasswordChange}/><br/>
           <button className="sign btn" type="submit">Sign Up</button>
         </form>
       </div>
-    )
+    );
   }
 });
 

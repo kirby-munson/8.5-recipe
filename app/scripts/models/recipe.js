@@ -1,9 +1,8 @@
 var Backbone = require('backbone');
 
 var Recipe = Backbone.Model.extend({
-  idAttribute: 'objectID',
+  idAttribute: 'objectId',
   urlRoot: 'https://tiny-parse-server.herokuapp.com/classes/Munson'
-
 });
 
 var RecipeCollection = Backbone.Collection.extend({
@@ -15,6 +14,6 @@ var RecipeCollection = Backbone.Collection.extend({
 });
 
 module.exports = {
-  'Recipe':Recipe,
-  'RecipeCollection':RecipeCollection
+  'Recipe': Recipe,
+  'RecipeCollection': RecipeCollection
 }

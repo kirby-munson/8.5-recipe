@@ -5,7 +5,10 @@ var router = require('../router');
 
 var LoginComponent = React.createClass({
   getInitialState: function(){
-    return {'username': '', 'password': ''}
+    return {
+      'username': '',
+      'password': ''
+    }
   },
   handleSubmit: function(e){
     e.preventDefault();
@@ -47,7 +50,7 @@ var LoginComponent = React.createClass({
           <button className="log btn" type="submit">Log In</button>
         </form>
       </div>
-    )
+    );
   }
 });
 

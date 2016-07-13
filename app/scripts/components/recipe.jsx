@@ -2,9 +2,67 @@ var React  = require('react');
 var Recipe = require('../models/recipe');
 
 
+var RecipeList = React.createClass({
+  render: function(){
+    var recipe = this.props.newRecipe;
+    var ingredients = this.props.newRecipe.get('ingredients');
+    var ingredientList = ingredients.map(function(ingredient, index){
+      return (
+        <h6 key={index}>{ingredient.amount + ' '}{ingredient.measurement + ' of '}{ingredient.ingredient}</h6>
+      )
+    });
+
+    return (
+      <div>
+        <h4>{recipe.get('title')}</h4>
+        <h5>{'Serving Size: ' + recipe.get('servingSize')}</h5>
+        {ingredientList}
+      </div>
+    )
+}
+});
+
+var RecipeForm = React.createClass({
+  getInitialState: function(){
+    return {
+      'servingSize': ''
+    }
+  },
+  handleSubmit: function(e){
+    e.preventDefault();
+    this.props.handleAdjustment(this.state.servingSize);
+  },
+  handleServingChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'servingSize': e.target.value
+    });
+  },
+  render: function(){
+    return(
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <span>Makes</span>
+          <input
+            type="number"
+            id="servingSize"
+            value={this.state.servingSize}
+            onChange={this.handleServingChange}
+            placeholder={this.props.newRecipe.get('servingSize')}
+            name='servingSize' />
+          <span>servings</span>
+          <button className="adjust-button btn" type="submit">Adjust Recipe</button>
+        </form>
+      </div>
+    );
+  }
+});
+
 var AppComponent = React.createClass({
   getInitialState: function(){
-    return {'newRecipe': {}}
+    return {
+      'newRecipe': {}
+    }
   },
   componentWillMount: function(){
     var newRecipe = new Recipe();
@@ -21,9 +79,6 @@ var AppComponent = React.createClass({
       this.setState({
         'newRecipe': newRecipe
       });
-
-
-
 
       newRecipe.on('change:ingredients', this.update);
   },
@@ -53,62 +108,9 @@ var AppComponent = React.createClass({
           </div>
         </div>
       </div>
-    )
+    );
   }
 });
 
-var RecipeList = React.createClass({
-  render: function(){
-    var recipe = this.props.newRecipe;
-    var ingredients = this.props.newRecipe.get('ingredients');
-    var ingredientList = ingredients.map(function(ingredient, index){
-      return (
-        <h6 key={index}>{ingredient.amount + ' '}{ingredient.measurement + ' of '}{ingredient.ingredient}</h6>
-      )
-    });
-
-    return (
-      <div>
-        <h4>{recipe.get('title')}</h4>
-        <h5>{'Serving Size: ' + recipe.get('servingSize')}</h5>
-        {ingredientList}
-      </div>
-    )
-}
-});
-
-var RecipeForm = React.createClass({
-  getInitialState: function(){
-    return {'servingSize': ''}
-  },
-  handleSubmit: function(e){
-    e.preventDefault();
-    this.props.handleAdjustment(this.state.servingSize);
-  },
-  handleServingChange: function(e){
-    e.preventDefault();
-    this.setState({
-      'servingSize': e.target.value
-    });
-  },
-  render: function(){
-    return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <span>Makes</span>
-          <input
-            type="number"
-            id="servingSize"
-            value={this.state.servingSize}
-            onChange={this.handleServingChange}
-            placeholder={this.props.newRecipe.get('servingSize')}
-            name='servingSize' />
-          <span>servings</span>
-          <button className="adjust-button btn" type="submit">Adjust Recipe</button>
-        </form>
-      </div>
-    )
-  }
-});
 
 module.exports = AppComponent;

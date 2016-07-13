@@ -6,6 +6,22 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 
+
+// colors
+$blue: #456f95;
+$gray: #ddd;
+$lightlightgray: #eeeeee;
+
+$homebutton: #ddd;
+$sign_logbuttons: #456f95;
+$adjustbutton: #456f95;
+$headerbgcolor: #456f95;
+$side-navbgcolor: #456f95;
+$profile_bgcolor: #eeeeee;
+
+
+
+// default
 *,
 *::before,
 *::after {
@@ -16,6 +32,7 @@ img {
   max-width: 100%;
 }
 
+// header section
 .nav{
   height: 350px;
   background-image: url('https://images.unsplash.com/photo-1460400408855-36abd76648b9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=1c9fc275d85ee05c6e64f09eff62b363');
@@ -35,8 +52,13 @@ img {
       font-family: 'Josefin Slab', serif;
       color: white;
       font-size: 20px;
-
   }
+}
+
+// homepage buttons section
+.welcome{
+  background-color: $headerbgcolor;
+  height: 200px;
 }
 
 button.login {
@@ -46,7 +68,7 @@ button.login {
 }
 
 button.login:hover {
-  background-color: #ddd;
+  background-color: $homebutton;
   color: white
 }
 
@@ -56,50 +78,11 @@ button.sign-up {
 }
 
 button.sign-up:hover {
-  background-color: #ddd;
+  background-color: $homebutton;
   color: white
 }
 
-.adjust{
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 20px;
-  h4{
-
-  }
-}
-
-.sign-up-form{
-  margin-top: 20px;
-}
-
-.log-in-form{
-  margin-top: 20px;
-}
-
-button.sign {
-  margin-top: 10px;
-  background-color: #456f95;
-  color: white;
-}
-
-button.log {
-  margin-top: 10px;
-  background-color: #456f95;
-  color: white;
-}
-
-.adjust-button{
-  background-color: #456f95;
-  color: white;
-}
-
-.welcome{
-  background-color: #456f95;
-  height: 200px;
-}
-
+// homepage quote section
 .quote{
   background-image: url('https://images.unsplash.com/photo-1428660386617-8d277e7deaf2?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=5e61ca9c4bfd810c01a0a2d1519f4291');
   background-repeat: no-repeat;
@@ -115,12 +98,55 @@ button.log {
   }
 }
 
+// adjust recipe form
+.adjust{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.adjust-button{
+  background-color: $adjustbutton;
+  color: white;
+}
+
+// signup form
+.sign-up-form{
+  margin-top: 20px;
+}
+
+button.sign {
+  margin-top: 10px;
+  background-color: $sign_logbuttons;
+  color: white;
+}
+
+// login form
+.log-in-form{
+  margin-top: 20px;
+}
+
+button.log {
+  margin-top: 10px;
+  background-color: $sign_logbuttons;
+  color: white;
+}
+
+// profile
+.hello{
+  background-color: $headerbgcolor;
+  height: 125px;
+  color: white;
+  text-align: center;
+  font-family: 'Josefin Slab', serif;
+}
+
 .side-nav{
-  background-color: #456f95;
-  height: 500px;
+  background-color: $side-navbgcolor;
+  height: 50px;
   margin-top: 20px;
   margin-left: 20px;
-  margin-right: 10px;
   color: white;
   font-family: 'Josefin Slab', serif;
   font-size: 20px;
@@ -131,30 +157,39 @@ button.log {
   margin: 0 auto;
 }
 
-.hello{
-  background-color: #456f95;
-  height: 125px;
-  color: white;
-  text-align: center;
-  font-family: 'Josefin Slab', serif;
-}
-
 .cards{
   margin-top: 20px;
-  border: 0.1px solid gray;
+  background-color: white;
   font-family: 'Josefin Slab', serif;
   margin-right: 20px;
+  box-shadow: 1px 1px 1px 1px #999999;
   a{
     text-decoration: none;
+  }
+  h4{
+    padding-left: 10px;
+  }
+  h5{
+    padding-left: 10px;
   }
 }
 
 .card-img-wrapper{
-  margin-top: 10px;
+  height: 200px;
+  overflow: hidden;
 }
 
 .profile-link{
   float: right;
   margin-top: 20px;
   margin-right: 20px;
+}
+
+dl{
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.bg-profile{
+  background-color: $profile_bgcolor;
 }

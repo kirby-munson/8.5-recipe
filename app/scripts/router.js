@@ -57,19 +57,19 @@ var TheAppRouter = Backbone.Router.extend({
       document.getElementById('container')
     );
   },
-  add: function(id){
+  add: function(objectId){
     var self = this;
     ReactDOM.render(
-      React.createElement(RecipeFormComponent, {router: self, editId: id}),
+      React.createElement(RecipeFormComponent, {router: self, objectId: objectId}),
       document.getElementById('container')
     );
   },
-  details: function(id){
+  details: function(objectId){
     ReactDOM.render(
-      React.createElement(RecipeDetailComponent, {editId: id}),
+      React.createElement(RecipeDetailComponent, {objectId: objectId}),
       document.getElementById('container')
     );
-  }
+  },
 });
 
 var router = new TheAppRouter();

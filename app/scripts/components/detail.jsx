@@ -1,15 +1,32 @@
 var React = require('react');
 var Recipe = require('../models/recipe').Recipe;
+var RecipeCollection = require('../models/recipe').RecipeCollection;
 require('../router');
 
 var RecipeDetailComponent = React.createClass({
   getInitialState: function(){
-    return {}
+    return {
+      recipe: {}
+    }
   },
   componentWillMount: function(){
+    var self = this;
 
+    var recipeCollection = new RecipeCollection();
+    recipeCollection.fetch().done(function(){
+      recipeCollection.each(function(recipe){
+        var recipe = new Recipe();
+        recipe.set('objectId', this.props.objectId);
+        recipe.fetch().done(function(data){
+          console.log(data)
+          self.setState({recipe: recipe});
+        });
+      });
+    });
   },
   render: function(){
+    var self = this;
+    var recipe = self.state.recipe;
     return(
       <div>
         <div className="hello col-md-12">
@@ -27,7 +44,7 @@ var RecipeDetailComponent = React.createClass({
           <dd>1 cup of sugar</dd>
         </dl>
       </div>
-    )
+    );
   }
 });
 
