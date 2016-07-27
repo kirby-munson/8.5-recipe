@@ -6,14 +6,18 @@ require('../router');
 var RecipeCards = React.createClass({
   getInitialState: function(){
     return {
-      recipeCollection: []
+      recipeCollection: [],
+      ingredients: [],
+      model: {}
     };
   },
   componentWillMount: function(){
     var recipeCollection = new models.RecipeCollection();
     var self = this;
     recipeCollection.fetch().done(function(){
-      self.setState({recipeCollection: recipeCollection});
+      self.setState({
+        recipeCollection: recipeCollection,
+      });
     });
   },
   render: function(){
@@ -50,17 +54,20 @@ var ProfileComponent = React.createClass({
           <a href="#profile/add/"><button className="create-new btn btn-success">Create New Recipe</button></a>
         </div>
         <div className="bg-profile">
-          <div className='side-nav col-md-2'>
-            <dl>
-              <dd>My Recipes</dd>
-            </dl>
+          <div className="col-md-2 side-nav div1">My Recipes<span className="caret"></span></div>
+            <div className="1 main files-content">
+              <ul className="files-nav">
+                <li className="col-md-1 side-nav2"><a href="#">Public</a></li>
+                <li className="col-md-1 side-nav2"><a href="#">Private</a></li>
+                <li className="col-md-1 side-nav2"><a href="#">Share</a></li>
+              </ul>
+            </div>
+            <RecipeCards />
+            </div>
           </div>
-          <RecipeCards />
-        </div>
-      </div>
-    )
-  }
-});
+        );
+      }
+    });
 
 
 module.exports = ProfileComponent;

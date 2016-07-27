@@ -15,6 +15,7 @@ var TheAppRouter = Backbone.Router.extend({
     '': 'index',
     'login/': 'login',
     'signup/': 'signUp',
+    'recipe/': 'recipe',
     'profile/':'profile',
     'profile/add/': 'add',
     'profile/:id/edit/': 'add',
@@ -56,6 +57,11 @@ var TheAppRouter = Backbone.Router.extend({
       React.createElement(ProfileComponent, {router: self}),
       document.getElementById('container')
     );
+    $(document).ready(function(){
+          $("div.div1").click(function(){
+              $("div.1").toggleClass("main1");
+          });
+      });
   },
   add: function(objectId){
     var self = this;
@@ -67,6 +73,12 @@ var TheAppRouter = Backbone.Router.extend({
   details: function(objectId){
     ReactDOM.render(
       React.createElement(RecipeDetailComponent, {objectId: objectId}),
+      document.getElementById('container')
+    );
+  },
+  recipe: function(){
+    ReactDOM.render(
+      React.createElement(AppComponent),
       document.getElementById('container')
     );
   },

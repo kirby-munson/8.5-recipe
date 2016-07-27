@@ -10,6 +10,7 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 // colors
 $blue: #456f95;
 $gray: #ddd;
+$navy: #062d3f;
 $lightlightgray: #eeeeee;
 
 $homebutton: #ddd;
@@ -146,11 +147,61 @@ button.log {
   background-color: $side-navbgcolor;
   height: 50px;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 25px;
   color: white;
+  text-align: center;
   font-family: 'Josefin Slab', serif;
-  font-size: 20px;
+  font-size: 16px;
+  padding-top: 15px;
+}
+
+.side-nav2{
+  height: 30px;
+  margin-top: 25px;
+  margin-left: 25px;
+  color: $blue;
+  font-family: 'Josefin Slab', serif;
+  font-size: 16px;
   padding-top: 10px;
+}
+
+.side-nav:hover{
+  background-color: $navy;
+}
+
+.btn-success {
+  background-color: $navy;
+  border: none;
+}
+
+.btn-success:hover{
+  background-color: lighten($navy, 10);
+}
+
+.caret{
+  transform: rotate(270deg);
+  margin-left: 10px;
+}
+
+ul.files-nav{
+  height: 100px;
+
+  li{
+    display: inline;
+  }
+  a{
+    text-decoration: none;
+    color: $blue;
+    font-size: 16px;
+  }
+}
+
+.main {
+  display: none;
+}
+
+.main1 {
+  display: block;
 }
 
 .create-new{
@@ -159,6 +210,7 @@ button.log {
 
 .cards{
   margin-top: 20px;
+  padding-bottom: 10px;
   background-color: white;
   font-family: 'Josefin Slab', serif;
   margin-right: 20px;
@@ -191,5 +243,58 @@ dl{
 }
 
 .bg-profile{
-  background-color: $profile_bgcolor;
+  // background-color: $profile_bgcolor;
+}
+
+// form
+.recipe-form{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.add-in{
+  margin-top: 10px;
+}
+
+// single recipe detail view
+
+.recipe_card{
+  margin: 20px;
+}
+
+.detail-button{
+  margin-top: 20px;
+  background-color: $blue;
+  font-family: 'Josefin Slab', serif;
+  color: white;
+}
+
+.detail-button:hover{
+  background-color: lighten($blue, 10);
+  color: white;
+
+}
+
+.adjust-button{
+  margin-top: 20px;
+  margin-left: 10px;
+  background-color: $navy;
+  font-family: 'Josefin Slab', serif;
+  color: white;
+}
+
+.adjust-button:hover{
+  background-color: lighten($navy, 10);
+  color: white;
+}
+
+ul.detail-buttons{
+  display: flex;
+  li{
+    display: inline;
+    float: right;
+  }
+  a{
+    display: block;
+  }
 }

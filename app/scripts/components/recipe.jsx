@@ -1,5 +1,5 @@
 var React  = require('react');
-var Recipe = require('../models/recipe');
+var Recipe = require('../models/recipe').Recipe;
 
 
 var RecipeList = React.createClass({

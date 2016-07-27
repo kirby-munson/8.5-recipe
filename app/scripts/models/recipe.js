@@ -13,7 +13,27 @@ var RecipeCollection = Backbone.Collection.extend({
   }
 });
 
+var Ingredient = Backbone.Model.extend({
+  idAttribute: 'objectId',
+});
+
+var IngredientCollection = Backbone.Collection.extend({
+  model: Ingredient,
+});
+
+var Step = Backbone.Model.extend({
+  idAttribute: 'objectId',
+});
+
+var StepCollection = Backbone.Collection.extend({
+  model: Step
+});
+
 module.exports = {
   'Recipe': Recipe,
-  'RecipeCollection': RecipeCollection
+  'RecipeCollection': RecipeCollection,
+  'Ingredient':Ingredient,
+  'IngredientCollection':IngredientCollection,
+  'Step':Step,
+  'StepCollection':StepCollection
 }
